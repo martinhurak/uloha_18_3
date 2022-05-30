@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        class movie {
+            constructor(nazovFilmu, rokVydania, herci = []) {
+                this.nazovFilmu = nazovFilmu;
+                this.rokVydania = rokVydania;
+                this.herci = herci.split(' ')
+            }
+            printDetail() {
+
+                console.log("Film:" + this.nazovFilmu + "\tRok:" + this.rokVydania)
+
+                for (let i = 0; i < this.herci.length; i++) {
+                    if (i == 0) {
+                        console.log("herci: \n" + this.herci[i])
+                        continue
+                    }
+                    console.log(this.herci[i])
+                }
+
+            }
+
+            printLongestActor() {
+                let najdlhie_meno_lenght = 0;
+                let najdlhie_meno = "";
+                for (let i = 0; i < this.herci.length; i++) {
+
+                    if (this.herci[i].length > najdlhie_meno_lenght) {
+                        najdlhie_meno_lenght = this.herci[i].length
+                        najdlhie_meno = this.herci[i]
+                    }
+                }
+
+                console.log("najdlhsie meno herca je " + najdlhie_meno)
+
+            }
+        }
+        let film = new movie("transformery", 1999, "laco jozefff urban")
+        let iny_film = new movie("cigani_v_praci", 2020, "džuzepe dežko demeter")
+
+        film.printDetail()
+        film.printLongestActor()
+
+        iny_film.printDetail()
+        iny_film.printLongestActor()
+    </script>
+</body>
+
+</html>
